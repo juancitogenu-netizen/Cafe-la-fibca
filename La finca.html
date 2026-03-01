@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Café La Finca S.A.S. — Café de Especialidad Colombiano</title>
+<meta name="description" content="Café de especialidad colombiano con trazabilidad total. Microlotes de Huila y Nariño, entregados directamente desde la finca a tu taza.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cafe: #2C1503;
+  --cafe-m: #5C2E0A;
+  --cafe-l: #8B5E3C;
+  --gold: #B8860B;
+  --gold-l: #D4A520;
+  --verde: #1B4332;
+  --verde-m: #2D6A4F;
+  --crema: #FAF3E8;
+  --crema-d: #F0E4CC;
+  --blanco: #FEFAF4;
+  --negro: #1A0F05;
+  --gris: #6B5B4E;
+  --border: rgba(139,94,60,0.2);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--blanco);color:var(--negro);overflow-x:hidden}
+
+/* ── TYPOGRAPHY ── */
+h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif}
+h1{font-size:clamp(2.8rem,6vw,5.5rem);font-weight:300;line-height:1.05;letter-spacing:-0.02em}
+h2{font-size:clamp(2rem,4vw,3.2rem);font-weight:300;line-height:1.1}
+h3{font-size:clamp(1.3rem,2.5vw,1.9rem);font-weight:400}
+p{line-height:1.7;color:var(--gris)}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.2rem 4vw;display:flex;align-items:center;justify-content:space-between;transition:all .4s ease}
+nav.scrolled{background:rgba(44,21,3,0.97);backdrop-filter:blur(12px)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--crema);letter-spacing:0.05em;text-decoration:none}
+.nav-logo span{color:var(--gold-l)}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{color:rgba(250,243,232,0.8);text-decoration:none;font-size:.85rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;transition:color .3s}
+.nav-links a:hover{color:var(--gold-l)}
+.nav-cta{background:var(--gold);color:var(--cafe);padding:.6rem 1.4rem;border-radius:2px;font-weight:600;font-size:.8rem;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;transition:all .3s}
+.nav-cta:hover{background:var(--gold-l);transform:translateY(-1px)}
+
+/* ── HERO ── */
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden;background:var(--cafe)}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#1a0a00 0%,#3d1f05 40%,#2C1503 100%)}
+.hero-texture{position:absolute;inset:0;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Ccircle cx='7' cy='7' r='1.5'/%3E%3Ccircle cx='27' cy='7' r='1.5'/%3E%3Ccircle cx='47' cy='7' r='1.5'/%3E%3Ccircle cx='17' cy='17' r='1.5'/%3E%3Ccircle cx='37' cy='17' r='1.5'/%3E%3Ccircle cx='57' cy='17' r='1.5'/%3E%3Ccircle cx='7' cy='27' r='1.5'/%3E%3Ccircle cx='27' cy='27' r='1.5'/%3E%3Ccircle cx='47' cy='27' r='1.5'/%3E%3Ccircle cx='17' cy='37' r='1.5'/%3E%3Ccircle cx='37' cy='37' r='1.5'/%3E%3Ccircle cx='7' cy='47' r='1.5'/%3E%3Ccircle cx='27' cy='47' r='1.5'/%3E%3Ccircle cx='47' cy='47' r='1.5'/%3E%3Ccircle cx='17' cy='57' r='1.5'/%3E%3Ccircle cx='37' cy='57' r='1.5'/%3E%3Ccircle cx='57' cy='57' r='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero-glow{position:absolute;top:-20%;right:-10%;width:60%;aspect-ratio:1;background:radial-gradient(circle,rgba(184,134,11,0.15) 0%,transparent 70%);pointer-events:none}
+.hero-content{position:relative;z-index:2;max-width:1300px;margin:0 auto;padding:0 4vw;display:grid;grid-template-columns:1fr 1fr;gap:8rem;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:.6rem;background:rgba(184,134,11,0.15);border:1px solid rgba(184,134,11,0.4);color:var(--gold-l);padding:.5rem 1.2rem;border-radius:2px;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;font-weight:500;margin-bottom:2rem}
+.hero-badge::before{content:'☕';font-size:1rem}
+.hero h1{color:var(--crema);margin-bottom:1.5rem}
+.hero h1 em{color:var(--gold-l);font-style:italic}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:rgba(250,243,232,0.65);margin-bottom:2.5rem;font-weight:300;line-height:1.6}
+.hero-actions{display:flex;gap:1.2rem;flex-wrap:wrap}
+.btn-primary{background:var(--gold);color:var(--cafe);padding:.9rem 2.2rem;border-radius:2px;font-weight:600;font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:all .3s;border:none;cursor:pointer}
+.btn-primary:hover{background:var(--gold-l);transform:translateY(-2px);box-shadow:0 8px 24px rgba(184,134,11,0.35)}
+.btn-outline{background:transparent;color:var(--crema);padding:.9rem 2.2rem;border-radius:2px;font-weight:500;font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:all .3s;border:1px solid rgba(250,243,232,0.3)}
+.btn-outline:hover{border-color:var(--crema);background:rgba(250,243,232,0.08)}
+.hero-visual{position:relative}
+.hero-card{background:rgba(250,243,232,0.06);border:1px solid rgba(250,243,232,0.12);border-radius:4px;padding:2.5rem;backdrop-filter:blur(8px)}
+.hero-card-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(250,243,232,0.1)}
+.coffee-icon{width:3.5rem;height:3.5rem;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem}
+.hero-card-title{color:var(--crema);font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400}
+.hero-card-sub{color:rgba(250,243,232,0.5);font-size:.8rem;margin-top:.2rem;letter-spacing:.05em}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.stat{background:rgba(250,243,232,0.04);border:1px solid rgba(250,243,232,0.08);padding:1.2rem;border-radius:3px;text-align:center}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:var(--gold-l);display:block;font-weight:600}
+.stat-label{font-size:.72rem;color:rgba(250,243,232,0.5);letter-spacing:.1em;text-transform:uppercase;margin-top:.3rem}
+.hero-origin-tags{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.2rem}
+.origin-tag{background:rgba(43,100,70,0.25);border:1px solid rgba(43,100,70,0.4);color:#74c69d;padding:.35rem .9rem;border-radius:2px;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase}
+
+/* ── SCROLL INDICATOR ── */
+.scroll-down{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;color:rgba(250,243,232,0.4);font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+.scroll-line{width:1px;height:3rem;background:linear-gradient(to bottom,rgba(250,243,232,0.4),transparent)}
+
+/* ── PROMISE STRIP ── */
+.promise{background:var(--verde);padding:1.2rem 4vw;display:flex;align-items:center;justify-content:center;gap:4rem;flex-wrap:wrap}
+.promise-item{display:flex;align-items:center;gap:.8rem;color:rgba(250,243,232,0.85);font-size:.82rem;letter-spacing:.05em}
+.promise-item span{font-size:1.2rem}
+
+/* ── SECTION BASE ── */
+section{padding:7rem 4vw}
+.container{max-width:1300px;margin:0 auto}
+.section-label{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:1rem}
+.section-title{margin-bottom:1.5rem}
+.section-desc{max-width:50ch;margin-bottom:3rem;font-size:1.05rem}
+
+/* ── PRODUCTS ── */
+.products-section{background:var(--crema)}
+.products-header{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:4rem}
+.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem}
+.product-card{background:var(--blanco);border:1px solid var(--border);border-radius:4px;overflow:hidden;transition:all .3s;position:relative}
+.product-card:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(44,21,3,0.12);border-color:var(--cafe-l)}
+.product-img{height:200px;display:flex;align-items:center;justify-content:center;font-size:4rem;position:relative;overflow:hidden}
+.product-img.grano{background:linear-gradient(135deg,#3d1f05,#6b3a1f)}
+.product-img.molido{background:linear-gradient(135deg,#1B4332,#2D6A4F)}
+.product-img.suscripcion{background:linear-gradient(135deg,#0d3b2e,#1B4332)}
+.product-img.kit{background:linear-gradient(135deg,#4a2c0a,#8B5E3C)}
+.product-img.accesorios{background:linear-gradient(135deg,#2a1800,#5C2E0A)}
+.product-img.experiencia{background:linear-gradient(135deg,#1a0f05,#3d1f05)}
+.product-badge{position:absolute;top:1rem;right:1rem;background:var(--gold);color:var(--cafe);padding:.3rem .8rem;border-radius:2px;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.product-body{padding:1.8rem}
+.product-name{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--cafe);margin-bottom:.4rem}
+.product-origin{font-size:.75rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.8rem}
+.product-desc{font-size:.87rem;color:var(--gris);line-height:1.6;margin-bottom:1.2rem}
+.product-specs{display:flex;gap.6rem;flex-wrap:wrap;margin-bottom:1.4rem;gap:.4rem}
+.spec-tag{background:var(--crema-d);color:var(--cafe-m);padding:.25rem .7rem;border-radius:2px;font-size:.7rem;font-weight:500;letter-spacing:.05em}
+.product-footer{display:flex;align-items:center;justify-content:space-between;padding-top:1.2rem;border-top:1px solid var(--border)}
+.product-price{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:var(--cafe)}
+.product-price small{font-size:.9rem;color:var(--gris);font-family:'DM Sans',sans-serif;font-weight:400}
+.btn-buy{background:var(--cafe);color:var(--crema);padding:.6rem 1.4rem;border-radius:2px;font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:all .3s}
+.btn-buy:hover{background:var(--cafe-m);transform:translateY(-1px)}
+
+/* ── ORIGIN ── */
+.origin-section{background:var(--cafe);position:relative;overflow:hidden}
+.origin-bg{position:absolute;inset:0;background:linear-gradient(135deg,#1a0a00 0%,var(--cafe) 50%,#0d1f15 100%)}
+.origin-content{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:8rem;align-items:center}
+.origin-visual{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.origin-card{background:rgba(250,243,232,0.05);border:1px solid rgba(250,243,232,0.1);padding:2rem;border-radius:3px;transition:all .3s}
+.origin-card:hover{background:rgba(250,243,232,0.08);transform:translateY(-3px)}
+.origin-card:first-child{grid-column:1/-1;background:rgba(27,67,50,0.2);border-color:rgba(43,100,70,0.3)}
+.origin-num{font-family:'Cormorant Garamond',serif;font-size:2.8rem;color:var(--gold-l);font-weight:600;line-height:1;margin-bottom:.5rem}
+.origin-label{font-size:.72rem;color:rgba(250,243,232,0.5);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.5rem}
+.origin-val{color:rgba(250,243,232,0.85);font-size:.95rem}
+.origin-text .section-label{color:var(--gold-l)}
+.origin-text h2{color:var(--crema)}
+.origin-text p{color:rgba(250,243,232,0.65);margin-bottom:1.5rem}
+.cert-badges{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:2rem}
+.cert{background:rgba(43,100,70,0.2);border:1px solid rgba(43,100,70,0.35);color:#74c69d;padding:.5rem 1.1rem;border-radius:2px;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase}
+
+/* ── SUBSCRIPTION ── */
+.sub-section{background:var(--crema-d)}
+.sub-content{display:grid;grid-template-columns:1.1fr 1fr;gap:6rem;align-items:center}
+.sub-box{background:var(--cafe);border-radius:6px;padding:3rem;position:relative;overflow:hidden}
+.sub-box::before{content:'';position:absolute;top:-40%;right:-20%;width:60%;aspect-ratio:1;background:radial-gradient(circle,rgba(184,134,11,0.2),transparent 70%)}
+.sub-tier{background:rgba(250,243,232,0.06);border:1px solid rgba(250,243,232,0.12);border-radius:3px;padding:1.5rem;margin-bottom:1.2rem;position:relative;z-index:1;cursor:pointer;transition:all .3s}
+.sub-tier.featured{background:rgba(184,134,11,0.12);border-color:rgba(184,134,11,0.4)}
+.sub-tier.featured .tier-name{color:var(--gold-l)}
+.tier-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem}
+.tier-name{color:var(--crema);font-family:'Cormorant Garamond',serif;font-size:1.3rem}
+.tier-price{color:var(--gold-l);font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600}
+.tier-freq{color:rgba(250,243,232,0.4);font-size:.75rem}
+.tier-perks{list-style:none;margin-top:.8rem}
+.tier-perks li{color:rgba(250,243,232,0.65);font-size:.83rem;padding:.2rem 0;display:flex;gap:.6rem}
+.tier-perks li::before{content:'✓';color:var(--gold-l);font-weight:700;flex-shrink:0}
+.sub-cta{width:100%;background:var(--gold);color:var(--cafe);padding:1rem;border-radius:2px;font-weight:700;font-size:.9rem;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;transition:all .3s;margin-top:1.5rem;position:relative;z-index:1}
+.sub-cta:hover{background:var(--gold-l);transform:translateY(-2px)}
+.sub-info h2{margin-bottom:1.2rem}
+.sub-info p{margin-bottom:1.5rem;font-size:1rem}
+.sub-features{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem}
+.sub-feat{display:flex;gap:.8rem;align-items:flex-start}
+.sub-feat-icon{width:2.5rem;height:2.5rem;background:var(--verde);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem}
+.sub-feat-text strong{display:block;color:var(--cafe);font-size:.9rem;margin-bottom:.2rem}
+.sub-feat-text span{font-size:.8rem;color:var(--gris)}
+
+/* ── TESTIMONIALS ── */
+.testimonials{background:var(--blanco)}
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3.5rem}
+.testimonial{background:var(--crema);border:1px solid var(--border);border-radius:4px;padding:2rem;position:relative}
+.testimonial::before{content:'"';font-family:'Cormorant Garamond',serif;font-size:5rem;color:var(--gold);opacity:.3;position:absolute;top:-.5rem;left:1.5rem;line-height:1}
+.stars{color:var(--gold);font-size:1rem;margin-bottom:1rem;letter-spacing:.1em}
+.testimonial-text{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--cafe-m);line-height:1.6;font-style:italic;margin-bottom:1.5rem}
+.testimonial-author{display:flex;align-items:center;gap:.8rem}
+.author-avatar{width:2.5rem;height:2.5rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--blanco);font-size:.8rem;flex-shrink:0}
+.author-name{font-weight:600;color:var(--cafe);font-size:.9rem}
+.author-location{font-size:.75rem;color:var(--gris)}
+
+/* ── MARKET SEGMENT ── */
+.market-section{background:var(--verde);overflow:hidden;position:relative}
+.market-bg{position:absolute;inset:0;background:linear-gradient(135deg,#0d2b1d,var(--verde),#1B4332)}
+.market-content{position:relative;z-index:2}
+.market-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem}
+.market-card{background:rgba(250,243,232,0.05);border:1px solid rgba(250,243,232,0.1);padding:2rem;border-radius:3px;text-align:center;transition:all .3s}
+.market-card:hover{background:rgba(250,243,232,0.1);transform:translateY(-4px)}
+.market-icon{font-size:2.5rem;margin-bottom:1rem;display:block}
+.market-card h4{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--crema);margin-bottom:.6rem}
+.market-card p{font-size:.82rem;color:rgba(250,243,232,0.55);line-height:1.6}
+.market-header h2{color:var(--crema)}
+.market-header .section-label{color:rgba(212,165,32,0.9)}
+.market-header p{color:rgba(250,243,232,0.65);max-width:55ch}
+
+/* ── PROMO BANNER ── */
+.promo-banner{background:linear-gradient(135deg,var(--gold),#8B6508);padding:3.5rem 4vw;text-align:center}
+.promo-banner h2{color:var(--cafe);font-size:clamp(1.8rem,3.5vw,2.8rem);margin-bottom:.8rem}
+.promo-banner p{color:rgba(44,21,3,0.75);margin-bottom:2rem;font-size:1.05rem}
+.promo-code{display:inline-block;background:var(--cafe);color:var(--gold-l);padding:.7rem 1.8rem;border-radius:2px;font-family:'Cormorant Garamond',serif;font-size:2rem;letter-spacing:.2em;font-weight:700;margin-bottom:1.5rem;cursor:pointer;transition:all .3s}
+.promo-code:hover{transform:scale(1.04)}
+.promo-banner .btn-primary{background:var(--cafe);color:var(--gold-l)}
+.promo-banner .btn-primary:hover{background:#1a0a00}
+
+/* ── BLOG ── */
+.blog-section{background:var(--crema)}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem}
+.blog-card{background:var(--blanco);border:1px solid var(--border);border-radius:4px;overflow:hidden;transition:all .3s}
+.blog-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(44,21,3,0.1)}
+.blog-img{height:160px;display:flex;align-items:center;justify-content:center;font-size:3rem}
+.blog-img.b1{background:linear-gradient(135deg,#3d1f05,#8B5E3C)}
+.blog-img.b2{background:linear-gradient(135deg,#1B4332,#40916C)}
+.blog-img.b3{background:linear-gradient(135deg,#2a1800,#6b3a1f)}
+.blog-body{padding:1.5rem}
+.blog-tag{font-size:.7rem;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;font-weight:600;margin-bottom:.6rem}
+.blog-body h4{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--cafe);margin-bottom:.6rem;line-height:1.3}
+.blog-body p{font-size:.83rem;color:var(--gris);line-height:1.6;margin-bottom:1rem}
+.read-more{font-size:.78rem;color:var(--cafe-m);font-weight:600;letter-spacing:.05em;text-decoration:none;text-transform:uppercase}
+.read-more:hover{color:var(--gold)}
+
+/* ── LOGISTICS ── */
+.logistics-section{background:var(--blanco)}
+.logistics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:3rem}
+.logistic-item{text-align:center;padding:2rem 1.5rem;background:var(--crema);border:1px solid var(--border);border-radius:4px;transition:all .3s}
+.logistic-item:hover{transform:translateY(-3px);border-color:var(--cafe-l)}
+.logistic-icon{font-size:2.5rem;margin-bottom:1.2rem;display:block}
+.logistic-item h4{font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--cafe);margin-bottom:.6rem}
+.logistic-item p{font-size:.83rem;color:var(--gris);line-height:1.6}
+.logistic-item strong{color:var(--verde-m)}
+
+/* ── FAQ / CONTACT ── */
+.contact-section{background:var(--cafe)}
+.contact-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.2fr 1fr;gap:6rem;align-items:start}
+.contact-section h2{color:var(--crema)}
+.contact-section .section-label{color:var(--gold-l)}
+.contact-section p{color:rgba(250,243,232,0.6)}
+.contact-methods{display:flex;flex-direction:column;gap:1.2rem;margin-top:2.5rem}
+.contact-method{display:flex;align-items:center;gap:1.2rem;background:rgba(250,243,232,0.05);border:1px solid rgba(250,243,232,0.1);padding:1.2rem 1.5rem;border-radius:3px;transition:all .3s;text-decoration:none}
+.contact-method:hover{background:rgba(250,243,232,0.1);border-color:rgba(250,243,232,0.2)}
+.cm-icon{width:2.5rem;height:2.5rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.cm-icon.email{background:rgba(184,134,11,0.2)}
+.cm-icon.whatsapp{background:rgba(43,100,70,0.3)}
+.cm-icon.chat{background:rgba(92,46,10,0.3)}
+.cm-text strong{display:block;color:var(--crema);font-size:.9rem;margin-bottom:.2rem}
+.cm-text span{color:rgba(250,243,232,0.5);font-size:.8rem}
+.contact-form{background:rgba(250,243,232,0.04);border:1px solid rgba(250,243,232,0.1);padding:2.5rem;border-radius:4px}
+.contact-form h3{font-family:'Cormorant Garamond',serif;color:var(--crema);font-size:1.6rem;margin-bottom:1.8rem}
+.form-group{margin-bottom:1.4rem}
+.form-group label{display:block;color:rgba(250,243,232,0.6);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem}
+.form-group input,.form-group select,.form-group textarea{width:100%;background:rgba(250,243,232,0.06);border:1px solid rgba(250,243,232,0.12);color:var(--crema);padding:.8rem 1rem;border-radius:2px;font-family:'DM Sans',sans-serif;font-size:.9rem;transition:all .3s;outline:none}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:rgba(184,134,11,0.5);background:rgba(250,243,232,0.09)}
+.form-group textarea{height:120px;resize:vertical}
+.form-group select option{background:var(--cafe)}
+.form-submit{width:100%;background:var(--gold);color:var(--cafe);padding:1rem;border:none;border-radius:2px;font-weight:700;font-size:.9rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .3s}
+.form-submit:hover{background:var(--gold-l);transform:translateY(-2px)}
+
+/* ── FOOTER ── */
+footer{background:#0f0700;padding:4rem 4vw 2rem}
+.footer-inner{max-width:1300px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4rem;padding-bottom:3rem;border-bottom:1px solid rgba(250,243,232,0.08)}
+.footer-brand .nav-logo{display:block;margin-bottom:1rem;font-size:1.8rem}
+.footer-brand p{color:rgba(250,243,232,0.45);font-size:.85rem;line-height:1.7;max-width:28ch}
+.social-links{display:flex;gap:.8rem;margin-top:1.5rem}
+.social-link{width:2.2rem;height:2.2rem;background:rgba(250,243,232,0.07);border:1px solid rgba(250,243,232,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(250,243,232,0.5);text-decoration:none;font-size:.9rem;transition:all .3s}
+.social-link:hover{background:var(--gold);border-color:var(--gold);color:var(--cafe)}
+.footer-col h5{color:var(--crema);font-family:'Cormorant Garamond',serif;font-size:1.1rem;margin-bottom:1.2rem}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:.6rem}
+.footer-col a{color:rgba(250,243,232,0.45);text-decoration:none;font-size:.83rem;transition:color .3s}
+.footer-col a:hover{color:var(--gold-l)}
+.footer-bottom{padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-bottom p{color:rgba(250,243,232,0.3);font-size:.78rem}
+.footer-certs{display:flex;gap:1rem;flex-wrap:wrap}
+.foot-cert{background:rgba(43,100,70,0.15);border:1px solid rgba(43,100,70,0.25);color:rgba(116,198,157,0.7);padding:.25rem .7rem;border-radius:2px;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase}
+
+/* ── POPUP ── */
+.popup-overlay{position:fixed;inset:0;background:rgba(10,5,0,0.8);z-index:1000;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:all .4s}
+.popup-overlay.active{opacity:1;pointer-events:all}
+.popup{background:var(--cafe);border:1px solid rgba(184,134,11,0.3);border-radius:6px;padding:3rem;max-width:480px;width:90%;position:relative;transform:scale(.9);transition:transform .4s}
+.popup-overlay.active .popup{transform:scale(1)}
+.popup-close{position:absolute;top:1rem;right:1.2rem;background:none;border:none;color:rgba(250,243,232,0.4);font-size:1.4rem;cursor:pointer;transition:color .3s}
+.popup-close:hover{color:var(--crema)}
+.popup-badge{display:inline-block;background:rgba(184,134,11,0.2);border:1px solid rgba(184,134,11,0.4);color:var(--gold-l);padding:.4rem 1rem;border-radius:2px;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;margin-bottom:1.2rem}
+.popup h3{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--crema);margin-bottom:.6rem;line-height:1.2}
+.popup p{color:rgba(250,243,232,0.6);font-size:.9rem;margin-bottom:1.8rem;line-height:1.6}
+.popup-form{display:flex;gap:.8rem}
+.popup-form input{flex:1;background:rgba(250,243,232,0.07);border:1px solid rgba(250,243,232,0.15);color:var(--crema);padding:.8rem 1rem;border-radius:2px;font-size:.9rem;font-family:'DM Sans',sans-serif;outline:none}
+.popup-form input:focus{border-color:rgba(184,134,11,0.5)}
+.popup-form button{background:var(--gold);color:var(--cafe);padding:.8rem 1.4rem;border:none;border-radius:2px;font-weight:700;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;white-space:nowrap;transition:all .3s}
+.popup-form button:hover{background:var(--gold-l)}
+.popup-disclaimer{font-size:.7rem;color:rgba(250,243,232,0.3);margin-top:1rem;text-align:center}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1100px){
+  .hero-content,.origin-content,.sub-content,.contact-inner{grid-template-columns:1fr;gap:3rem}
+  .products-header{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .market-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  nav{padding:1rem 5vw}
+  .nav-links{display:none}
+  .products-grid,.testimonials-grid,.blog-grid,.logistics-grid{grid-template-columns:1fr}
+  .hero-stats{grid-template-columns:1fr 1fr}
+  .sub-features{grid-template-columns:1fr}
+  .market-grid{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr}
+  .popup-form{flex-direction:column}
+  .hero-actions{flex-direction:column;align-items:flex-start}
+}
+
+/* ── ANIMATIONS ── */
+.fade-in{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+.stagger-1{transition-delay:.1s}
+.stagger-2{transition-delay:.2s}
+.stagger-3{transition-delay:.3s}
+.stagger-4{transition-delay:.4s}
+</style>
+</head>
+<body>
+
+<!-- ── POPUP ── -->
+<div class="popup-overlay" id="popup">
+  <div class="popup">
+    <button class="popup-close" onclick="closePopup()">✕</button>
+    <div class="popup-badge">🎁 Oferta exclusiva</div>
+    <h3>10% de descuento en tu primera compra</h3>
+    <p>Únete a más de 2.400 amantes del café que ya reciben nuestras novedades y accede a nuestra guía gratuita "El Arte del Café de Especialidad Colombiano".</p>
+    <div class="popup-form">
+      <input type="email" placeholder="tu@correo.com" id="popup-email">
+      <button onclick="submitPopup()">Obtener descuento</button>
+    </div>
+    <p class="popup-disclaimer">Sin spam. Solo café de calidad. Cancela cuando quieras.</p>
+  </div>
+</div>
+
+<!-- ── NAV ── -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">Café <span>La Finca</span></a>
+  <ul class="nav-links">
+    <li><a href="#productos">Productos</a></li>
+    <li><a href="#origen">Nuestro Origen</a></li>
+    <li><a href="#suscripcion">Suscripción</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <a href="#productos" class="nav-cta">Comprar ahora</a>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-texture"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-badge">Café de Especialidad · Huila & Nariño</div>
+      <h1>Del corazón<br>de Colombia<br><em>a tu taza</em></h1>
+      <p class="hero-sub">Microlotes de origen único con trazabilidad completa. Puntuación SCA ≥ 80/100. Directo desde la finca, sin intermediarios.</p>
+      <div class="hero-actions">
+        <a href="#productos" class="btn-primary">Explorar cafés</a>
+        <a href="#suscripcion" class="btn-outline">Ver suscripción</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="hero-card-header">
+          <div class="coffee-icon">☕</div>
+          <div>
+            <div class="hero-card-title">Microlote Temporada 2025</div>
+            <div class="hero-card-sub">Cosecha reciente · Disponibilidad limitada</div>
+          </div>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><span class="stat-num">87</span><div class="stat-label">Puntos SCA</div></div>
+          <div class="stat"><span class="stat-num">1.820m</span><div class="stat-label">Altitud</div></div>
+          <div class="stat"><span class="stat-num">100%</span><div class="stat-label">Arábica</div></div>
+          <div class="stat"><span class="stat-num">24h</span><div class="stat-label">Tostión fresca</div></div>
+        </div>
+        <div class="hero-origin-tags">
+          <span class="origin-tag">Huila</span>
+          <span class="origin-tag">Nariño</span>
+          <span class="origin-tag">Proceso Honey</span>
+          <span class="origin-tag">Fair Trade</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-down">
+    <div class="scroll-line"></div>
+    <span>Descubre</span>
+  </div>
+</section>
+
+<!-- ── PROMISE ── -->
+<div class="promise">
+  <div class="promise-item"><span>🌿</span> Trazabilidad certificada desde la planta</div>
+  <div class="promise-item"><span>✈️</span> Envío a Colombia en 2–5 días</div>
+  <div class="promise-item"><span>🌍</span> Envío internacional en 7–15 días</div>
+  <div class="promise-item"><span>🔄</span> Garantía de satisfacción 30 días</div>
+  <div class="promise-item"><span>🏆</span> Puntuación SCA ≥ 80/100 certificada</div>
+</div>
+
+<!-- ── PRODUCTOS ── -->
+<section class="products-section" id="productos">
+  <div class="container">
+    <div class="products-header">
+      <div>
+        <div class="section-label">Nuestro Portafolio</div>
+        <h2 class="section-title">Café de especialidad<br>para cada momento</h2>
+      </div>
+      <p class="section-desc">Cada producto lleva la historia de un agricultor, una región y un proceso meticuloso. Descubre el café que mejor se adapta a tu ritual.</p>
+    </div>
+    <div class="products-grid">
+
+      <div class="product-card fade-in">
+        <div class="product-img grano">
+          <div class="product-badge">Más vendido</div>
+          ☕
+        </div>
+        <div class="product-body">
+          <div class="product-origin">Huila, Colombia · Varietal: Caturra</div>
+          <div class="product-name">Microlote Grano Entero</div>
+          <p class="product-desc">Notas de panela, fruta roja y chocolate negro. Proceso lavado, secado en cama africana a 1.820 msnm. Ideal para preparaciones de filtro y espresso.</p>
+          <div class="product-specs">
+            <span class="spec-tag">250g</span>
+            <span class="spec-tag">500g</span>
+            <span class="spec-tag">1 kg</span>
+            <span class="spec-tag">87 pts SCA</span>
+            <span class="spec-tag">Tueste medio</span>
+          </div>
+          <div class="product-footer">
+            <div class="product-price">USD 18 <small>/ 250g</small></div>
+            <button class="btn-buy" onclick="addToCart('Microlote Grano', 18)">Agregar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card fade-in stagger-1">
+        <div class="product-img molido">☕</div>
+        <div class="product-body">
+          <div class="product-origin">Nariño, Colombia · Varietal: Castillo</div>
+          <div class="product-name">Café Molido Personalizado</div>
+          <p class="product-desc">Molido a tu medida: espresso, V60, Chemex, French Press o moka. Notas de cítrico, floral y caramelo. Proceso honey, seco en patio elevado.</p>
+          <div class="product-specs">
+            <span class="spec-tag">250g</span>
+            <span class="spec-tag">500g</span>
+            <span class="spec-tag">85 pts SCA</span>
+            <span class="spec-tag">Tueste claro</span>
+          </div>
+          <div class="product-footer">
+            <div class="product-price">USD 20 <small>/ 250g</small></div>
+            <button class="btn-buy" onclick="addToCart('Molido Personalizado', 20)">Agregar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card fade-in stagger-2">
+        <div class="product-img suscripcion">
+          <div class="product-badge">−15%</div>
+          📦
+        </div>
+        <div class="product-body">
+          <div class="product-origin">Varios orígenes · Selección mensual</div>
+          <div class="product-name">Finca Box — Suscripción</div>
+          <p class="product-desc">Recibe cada mes un microlote seleccionado por nuestro Q-Grader, con ficha de cata, historia del agricultor y guía de preparación. Descubrimiento garantizado.</p>
+          <div class="product-specs">
+            <span class="spec-tag">250g</span>
+            <span class="spec-tag">Mensual</span>
+            <span class="spec-tag">Cancelación libre</span>
+          </div>
+          <div class="product-footer">
+            <div class="product-price">USD 38 <small>/mes</small></div>
+            <button class="btn-buy" onclick="addToCart('Finca Box', 38)">Suscribirse</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card fade-in stagger-3">
+        <div class="product-img kit">🎁</div>
+        <div class="product-body">
+          <div class="product-origin">5 orígenes · Vuelta por Colombia</div>
+          <div class="product-name">Kit de Degustación</div>
+          <p class="product-desc">5 muestras de 50g de diferentes perfiles de sabor: variedades, regiones y procesos. El regalo perfecto para el amante del café o para descubrir tu preferido.</p>
+          <div class="product-specs">
+            <span class="spec-tag">5 × 50g</span>
+            <span class="spec-tag">Caja regalo</span>
+            <span class="spec-tag">Guía incluida</span>
+          </div>
+          <div class="product-footer">
+            <div class="product-price">USD 32 <small>/ kit</small></div>
+            <button class="btn-buy" onclick="addToCart('Kit Degustación', 32)">Agregar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card fade-in stagger-4">
+        <div class="product-img accesorios">🔧</div>
+        <div class="product-body">
+          <div class="product-origin">Accesorios · Selección curada</div>
+          <div class="product-name">Accesorios de Barista</div>
+          <p class="product-desc">Filtros V60, dripper de vidrio, molinillos manuales de cerámica y kettle cuello de cisne. Todo lo necesario para preparar el café perfecto en casa.</p>
+          <div class="product-specs">
+            <span class="spec-tag">Varios</span>
+            <span class="spec-tag">Envío incluido</span>
+          </div>
+          <div class="product-footer">
+            <div class="product-price">USD 28+</div>
+            <button class="btn-buy" onclick="addToCart('Accesorios', 28)">Ver más</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card fade-in stagger-1">
+        <div class="product-img experiencia">
+          <div class="product-badge">Virtual</div>
+          🎓
+        </div>
+        <div class="product-body">
+          <div class="product-origin">Online · Q-Graders certificados</div>
+          <div class="product-name">Experiencia Virtual de Cupping</div>
+          <p class="product-desc">Sesión en vivo con un Q-Grader certificado. Aprende a identificar notas de cata, procesos y regiones. Incluye kit de muestras enviado a domicilio previo al evento.</p>
+          <div class="product-specs">
+            <span class="spec-tag">90 min</span>
+            <span class="spec-tag">Grupo ≤ 10</span>
+            <span class="spec-tag">Kit incluido</span>
+          </div>
+          <div class="product-footer">
+            <div class="product-price">USD 55 <small>/ persona</small></div>
+            <button class="btn-buy" onclick="addToCart('Cupping Virtual', 55)">Reservar</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CART NOTIFICATION ── -->
+<div id="cart-toast" style="position:fixed;bottom:2rem;right:2rem;background:var(--verde);color:var(--crema);padding:1rem 1.5rem;border-radius:4px;font-size:.88rem;transform:translateX(150%);transition:transform .4s;z-index:500;border-left:4px solid var(--gold)">
+  ✓ Producto agregado al carrito
+</div>
+
+<!-- ── ORIGEN ── -->
+<section class="origin-section" id="origen">
+  <div class="container" style="position:relative;z-index:2">
+    <div class="origin-bg"></div>
+    <div class="origin-content">
+      <div class="origin-visual fade-in">
+        <div class="origin-card">
+          <div class="origin-num">Huila</div>
+          <div class="origin-label">Denominación de Origen</div>
+          <div class="origin-val">Las montañas del Macizo Colombiano, entre 1.500 y 2.000 msnm, producen cafés de cuerpo pleno con notas achocolatadas y frutales únicas en el mundo.</div>
+        </div>
+        <div class="origin-card">
+          <div class="origin-num">1.820</div>
+          <div class="origin-label">Metros sobre el mar</div>
+          <div class="origin-val">La altitud extrema concentra azúcares y ácidos orgánicos que definen la complejidad sensorial de nuestros granos.</div>
+        </div>
+        <div class="origin-card">
+          <div class="origin-num">Nariño</div>
+          <div class="origin-label">Denominación de Origen</div>
+          <div class="origin-val">El departamento con mayor altitud promedio de cultivo en Colombia: notas cítricas brillantes, acidez viva y cuerpo delicado.</div>
+        </div>
+        <div class="origin-card">
+          <div class="origin-num">100%</div>
+          <div class="origin-label">Trazabilidad garantizada</div>
+          <div class="origin-val">Conoces el nombre del agricultor, la vereda, el proceso y la fecha de cosecha de cada lote que recibes.</div>
+        </div>
+      </div>
+      <div class="origin-text fade-in stagger-2">
+        <div class="section-label">Nuestra Historia</div>
+        <h2 class="section-title" style="color:var(--crema)">Raíces en la tierra,<br>horizonte en el mundo</h2>
+        <p>Café La Finca S.A.S. es una empresa colombiana de base familiar con integración vertical desde el cultivo hasta la comercialización. Trabajamos directamente con familias agricultoras de Huila y Nariño que han cultivado café por generaciones.</p>
+        <p>Nuestra filosofía es simple: café extraordinario requiere respeto por la tierra, por el agricultor y por el proceso. Cada etapa —cultivo, cosecha selectiva, beneficio húmedo o seco, secado y tostión artesanal— se ejecuta con precisión y pasión.</p>
+        <p>El comercio electrónico nos permite llevar ese café excepcional directamente a tu puerta, eliminando intermediarios y asegurándonos de que cada dólar invertido retorne a las comunidades productoras.</p>
+        <div class="cert-badges">
+          <span class="cert">Rainforest Alliance</span>
+          <span class="cert">Fair Trade</span>
+          <span class="cert">SCA Certified</span>
+          <span class="cert">Origen Colombia</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SUSCRIPCIÓN ── -->
+<section class="sub-section" id="suscripcion">
+  <div class="container">
+    <div class="sub-content">
+      <div class="sub-box fade-in">
+        <div style="color:var(--gold-l);font-family:'Cormorant Garamond',serif;font-size:1.1rem;letter-spacing:.15em;text-transform:uppercase;margin-bottom:1.2rem">Finca Box — Club de Suscripción</div>
+        <div class="sub-tier">
+          <div class="tier-header">
+            <span class="tier-name">☕ Explorer</span>
+            <div><div class="tier-price">USD 38</div><div class="tier-freq">/mes · 250g</div></div>
+          </div>
+          <ul class="tier-perks">
+            <li>1 microlote sorpresa mensual</li>
+            <li>Ficha de cata y guía de preparación</li>
+            <li>Historia del agricultor en cada envío</li>
+            <li>10% descuento en tienda</li>
+          </ul>
+        </div>
+        <div class="sub-tier featured">
+          <div class="tier-header">
+            <span class="tier-name">🏆 Maestro Tostador</span>
+            <div><div class="tier-price">USD 68</div><div class="tier-freq">/mes · 500g</div></div>
+          </div>
+          <ul class="tier-perks">
+            <li>2 microlotes de origen diferente</li>
+            <li>Acceso prioritario a lotes de edición limitada</li>
+            <li>Cupping virtual trimestral incluido</li>
+            <li>15% descuento en tienda + envío gratis siempre</li>
+            <li>Nombre en la bolsa del origen que apoyas</li>
+          </ul>
+        </div>
+        <button class="sub-cta" onclick="showToast('¡Suscripción iniciada! Revisa tu correo.')">Iniciar mi suscripción →</button>
+      </div>
+      <div class="sub-info fade-in stagger-2">
+        <div class="section-label">Café Club La Finca</div>
+        <h2 class="section-title">Un microlote nuevo<br>cada mes en tu puerta</h2>
+        <p>Descubre Colombia taza a taza. Cada envío es una expedición a una región, un agricultor y un proceso diferente, curado por nuestro Q-Grader con más de 15 años de experiencia.</p>
+        <p>Cancela cuando quieras. Sin compromisos. Solo café extraordinario.</p>
+        <div class="sub-features">
+          <div class="sub-feat">
+            <div class="sub-feat-icon">📦</div>
+            <div class="sub-feat-text">
+              <strong>Empaque sostenible</strong>
+              <span>Bolsa kraft con válvula desgasificadora y tintas biodegradables</span>
+            </div>
+          </div>
+          <div class="sub-feat">
+            <div class="sub-feat-icon">✈️</div>
+            <div class="sub-feat-text">
+              <strong>Envío incluido</strong>
+              <span>Colombia 2–5 días · Internacional 7–15 días hábiles</span>
+            </div>
+          </div>
+          <div class="sub-feat">
+            <div class="sub-feat-icon">🔄</div>
+            <div class="sub-feat-text">
+              <strong>Personalizable</strong>
+              <span>Elige tueste claro, medio u oscuro y tu método de preparación</span>
+            </div>
+          </div>
+          <div class="sub-feat">
+            <div class="sub-feat-icon">🎓</div>
+            <div class="sub-feat-text">
+              <strong>Comunidad exclusiva</strong>
+              <span>Acceso al grupo privado de WhatsApp con catas y novedades</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MERCADO OBJETIVO ── -->
+<section class="market-section">
+  <div class="container">
+    <div class="market-bg"></div>
+    <div class="market-content">
+      <div class="market-header fade-in">
+        <div class="section-label">Mercado Objetivo</div>
+        <h2 class="section-title">Hecho para quienes<br>exigen más del café</h2>
+        <p>Nos dirigimos a consumidores conscientes que valoran la trazabilidad, el origen y la historia detrás de cada sorbo. El consumidor de la tercera ola del café.</p>
+      </div>
+      <div class="market-grid">
+        <div class="market-card fade-in">
+          <span class="market-icon">🏙️</span>
+          <h4>Urbano Premium</h4>
+          <p>Profesional de 25–55 años en ciudades globales: Bogotá, Nueva York, Berlín, Ámsterdam, Ciudad de México</p>
+        </div>
+        <div class="market-card fade-in stagger-1">
+          <span class="market-icon">🌿</span>
+          <h4>Consumidor Consciente</h4>
+          <p>Valora la sostenibilidad, el comercio justo y el impacto positivo en comunidades productoras colombianas</p>
+        </div>
+        <div class="market-card fade-in stagger-2">
+          <span class="market-icon">🔬</span>
+          <h4>Explorador Sensorial</h4>
+          <p>Apasionado por los perfiles de sabor, los métodos de preparación y la ciencia detrás del café de especialidad</p>
+        </div>
+        <div class="market-card fade-in stagger-3">
+          <span class="market-icon">💼</span>
+          <h4>B2B Especializado</h4>
+          <p>Cafeterías boutique, restaurantes de autor, hoteles premium y oficinas corporativas que exigen calidad certificada</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIOS ── -->
+<section class="testimonials">
+  <div class="container">
+    <div style="text-align:center">
+      <div class="section-label">Reseñas verificadas</div>
+      <h2 class="section-title">Lo que dicen<br>nuestros clientes</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial fade-in">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">El microlote de Huila es el mejor café que he probado en mi vida. La ficha de cata fue exacta: notas de panela y ciruela, acidez perfecta. Ahora entiendo por qué Colombia es una referencia mundial.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:#6B3A1F">MR</div>
+          <div>
+            <div class="author-name">María Rodríguez</div>
+            <div class="author-location">Bogotá, Colombia · Suscriptora Maestro</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial fade-in stagger-1">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">I've ordered from coffee roasters across Europe and the US, and La Finca's Nariño single origin is honestly exceptional. The traceability card was a wonderful touch. Shipped to Berlin in 10 days!</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:#1B4332">TM</div>
+          <div>
+            <div class="author-name">Thomas Müller</div>
+            <div class="author-location">Berlín, Alemania · Compra directa</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial fade-in stagger-2">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">Pedimos para nuestra cafetería en Medellín y la diferencia es notable. Los clientes preguntan siempre por el café. La suscripción mensual nos permite ofrecer variedad sin perder calidad. 100% recomendado.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:#2D6A4F">JV</div>
+          <div>
+            <div class="author-name">Juliana Vargas</div>
+            <div class="author-location">Medellín, Colombia · Cliente B2B</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:2rem">
+      <div style="font-size:.85rem;color:var(--gris)">⭐ 4.8 / 5 promedio · 287 reseñas verificadas en Trustpilot y Google</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROMO ── -->
+<div class="promo-banner">
+  <div class="section-label" style="text-align:center;color:rgba(44,21,3,0.6)">Promoción activa</div>
+  <h2>Tu primer pedido con 10% de descuento</h2>
+  <p>Usa el código en el checkout. Válido para todos los productos. Envío gratis en pedidos ≥ USD 50.</p>
+  <div class="promo-code" onclick="copyCode()">FINCA10</div>
+  <br>
+  <a href="#productos" class="btn-primary">Comprar ahora →</a>
+</div>
+
+<!-- ── BLOG ── -->
+<section class="blog-section" id="blog">
+  <div class="container">
+    <div class="section-label">Blog del Café</div>
+    <h2 class="section-title" style="margin-bottom:3rem">Aprende sobre<br>el café de especialidad</h2>
+    <div class="blog-grid">
+      <div class="blog-card fade-in">
+        <div class="blog-img b1">📖</div>
+        <div class="blog-body">
+          <div class="blog-tag">Guías de preparación</div>
+          <h4>Cómo preparar el café perfecto en V60: guía paso a paso</h4>
+          <p>Temperatura del agua, grosor de molienda, tiempo de infusión y ratio café-agua: todo lo que necesitas saber para sacar el máximo partido a tu grano.</p>
+          <a href="#" class="read-more">Leer más →</a>
+        </div>
+      </div>
+      <div class="blog-card fade-in stagger-1">
+        <div class="blog-img b2">🌿</div>
+        <div class="blog-body">
+          <div class="blog-tag">Origen y trazabilidad</div>
+          <h4>Por qué el café de Nariño es el más aromático de Colombia</h4>
+          <p>La altitud extrema, las noches frías y el suelo volcánico del Altiplano Nariñense crean las condiciones únicas para un café extraordinariamente aromático.</p>
+          <a href="#" class="read-more">Leer más →</a>
+        </div>
+      </div>
+      <div class="blog-card fade-in stagger-2">
+        <div class="blog-img b3">☕</div>
+        <div class="blog-body">
+          <div class="blog-tag">Proceso productivo</div>
+          <h4>Beneficio honey vs. lavado: ¿qué proceso define el sabor de tu café?</h4>
+          <p>El proceso de beneficio es una de las decisiones más determinantes en el perfil sensorial de un café. Te explicamos las diferencias con ejemplos concretos.</p>
+          <a href="#" class="read-more">Leer más →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── LOGÍSTICA ── -->
+<section class="logistics-section" id="envios">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:0">
+      <div class="section-label">Información de envíos</div>
+      <h2 class="section-title">De la finca a tu puerta,<br>con cuidado y rapidez</h2>
+    </div>
+    <div class="logistics-grid">
+      <div class="logistic-item fade-in">
+        <span class="logistic-icon">📦</span>
+        <h4>Empaque Premium</h4>
+        <p>Bolsa kraft con <strong>válvula desgasificadora</strong>, sellado hermético de nitrógeno y etiqueta con datos del agricultor y fecha de tostión.</p>
+      </div>
+      <div class="logistic-item fade-in stagger-1">
+        <span class="logistic-icon">🇨🇴</span>
+        <h4>Envío Nacional</h4>
+        <p>Colombia: <strong>2–5 días hábiles</strong> vía Servientrega o Coordinadora. Gratis en pedidos ≥ USD 50. Tracking en tiempo real.</p>
+      </div>
+      <div class="logistic-item fade-in stagger-2">
+        <span class="logistic-icon">🌍</span>
+        <h4>Envío Internacional</h4>
+        <p>Todo el mundo: <strong>7–15 días hábiles</strong> vía DHL Express o FedEx International Priority. Declaración aduanera incluida.</p>
+      </div>
+      <div class="logistic-item fade-in stagger-3">
+        <span class="logistic-icon">🔄</span>
+        <h4>Garantía 30 días</h4>
+        <p>Si no estás satisfecho por cualquier razón, te hacemos un <strong>reembolso completo o reenvío gratuito</strong> sin preguntas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACTO ── -->
+<section class="contact-section" id="contacto">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="fade-in">
+        <div class="section-label">Contacto y Soporte</div>
+        <h2>¿Tienes dudas?<br>Estamos para ti</h2>
+        <p style="margin:1.2rem 0 2rem">Nuestro equipo responde en menos de 24 horas. Para pedidos urgentes o consultas B2B, escríbenos directamente por WhatsApp.</p>
+        <div class="contact-methods">
+          <a href="mailto:hola@cafelafinca.com" class="contact-method">
+            <div class="cm-icon email">📧</div>
+            <div class="cm-text"><strong>hola@cafelafinca.com</strong><span>Respuesta en ≤ 24 horas hábiles</span></div>
+          </a>
+          <a href="https://wa.me/573001234567" class="contact-method">
+            <div class="cm-icon whatsapp">💬</div>
+            <div class="cm-text"><strong>WhatsApp +57 300 123 4567</strong><span>Atención directa Lun–Vie 8am–6pm (COT)</span></div>
+          </a>
+          <a href="#" class="contact-method">
+            <div class="cm-icon chat">🎓</div>
+            <div class="cm-text"><strong>Consultas B2B y Cuppings</strong><span>cafes@cafelafinca.com · Volumen mínimo: 5 kg</span></div>
+          </a>
+        </div>
+        <div style="margin-top:2.5rem;padding:1.5rem;background:rgba(250,243,232,0.04);border:1px solid rgba(250,243,232,0.08);border-radius:3px">
+          <div style="color:var(--gold-l);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.8rem">Datos de la empresa</div>
+          <p style="font-size:.85rem;color:rgba(250,243,232,0.55);line-height:1.8">
+            Café La Finca S.A.S.<br>
+            NIT: 900.123.456-7<br>
+            Carrera 13 No. 85-40, Bogotá D.C., Colombia<br>
+            Zona cafetera: Vereda El Paraíso, La Plata, Huila
+          </p>
+        </div>
+      </div>
+      <div class="contact-form fade-in stagger-2">
+        <h3>Envíanos un mensaje</h3>
+        <div class="form-group">
+          <label>Tu nombre</label>
+          <input type="text" placeholder="Nombre completo">
+        </div>
+        <div class="form-group">
+          <label>Correo electrónico</label>
+          <input type="email" placeholder="tu@correo.com">
+        </div>
+        <div class="form-group">
+          <label>Tipo de consulta</label>
+          <select>
+            <option>Pedido o envío</option>
+            <option>Suscripción Finca Box</option>
+            <option>Consulta B2B / mayorista</option>
+            <option>Cuppings y experiencias</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Mensaje</label>
+          <textarea placeholder="Cuéntanos cómo podemos ayudarte..."></textarea>
+        </div>
+        <button class="form-submit" onclick="submitForm()">Enviar mensaje →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">Café <span>La Finca</span></a>
+        <p>Café de especialidad colombiano con trazabilidad total. Del agricultor a tu taza, sin intermediarios.</p>
+        <div class="social-links">
+          <a href="#" class="social-link">📷</a>
+          <a href="#" class="social-link">🎵</a>
+          <a href="#" class="social-link">▶️</a>
+          <a href="#" class="social-link">in</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Tienda</h5>
+        <ul>
+          <li><a href="#">Café en grano</a></li>
+          <li><a href="#">Café molido</a></li>
+          <li><a href="#">Suscripción Finca Box</a></li>
+          <li><a href="#">Kit de degustación</a></li>
+          <li><a href="#">Accesorios</a></li>
+          <li><a href="#">Experiencias virtuales</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Información</h5>
+        <ul>
+          <li><a href="#">Nuestro origen</a></li>
+          <li><a href="#">Proceso productivo</a></li>
+          <li><a href="#">Certificaciones</a></li>
+          <li><a href="#">Blog del café</a></li>
+          <li><a href="#">Política de envíos</a></li>
+          <li><a href="#">Devoluciones</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Empresa</h5>
+        <ul>
+          <li><a href="#">Sobre nosotros</a></li>
+          <li><a href="#">Programa B2B</a></li>
+          <li><a href="#">Afiliados</a></li>
+          <li><a href="#">Prensa y medios</a></li>
+          <li><a href="#">Términos y condiciones</a></li>
+          <li><a href="#">Política de privacidad</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Café La Finca S.A.S. · Todos los derechos reservados · Bogotá, Colombia</p>
+      <div class="footer-certs">
+        <span class="foot-cert">Rainforest Alliance</span>
+        <span class="foot-cert">Fair Trade</span>
+        <span class="foot-cert">SCA Member</span>
+        <span class="foot-cert">PCI DSS Secure</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── NAVBAR SCROLL ──
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50)
+})
+
+// ── FADE IN OBSERVER ──
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})
+},{threshold:.1})
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el))
+
+// ── POPUP ──
+setTimeout(()=>{
+  if(!sessionStorage.getItem('popup_shown')){
+    document.getElementById('popup').classList.add('active')
+    sessionStorage.setItem('popup_shown','1')
+  }
+},8000)
+function closePopup(){document.getElementById('popup').classList.remove('active')}
+function submitPopup(){
+  const e=document.getElementById('popup-email')
+  if(e.value){closePopup();showToast('¡Bienvenido! Tu código FINCA10 llega a tu correo.')}
+}
+
+// ── CART TOAST ──
+function showToast(msg){
+  const t=document.getElementById('cart-toast')
+  t.textContent='✓ '+msg
+  t.style.transform='translateX(0)'
+  setTimeout(()=>t.style.transform='translateX(150%)',3000)
+}
+function addToCart(name,price){showToast(name+' agregado al carrito (USD '+price+')')}
+
+// ── PROMO CODE COPY ──
+function copyCode(){
+  navigator.clipboard?.writeText('FINCA10').catch(()=>{})
+  showToast('¡Código FINCA10 copiado!')
+}
+
+// ── FORM SUBMIT ──
+function submitForm(){showToast('Mensaje enviado. Te respondemos en ≤ 24h.')}
+</script>
+</body>
+</html>
